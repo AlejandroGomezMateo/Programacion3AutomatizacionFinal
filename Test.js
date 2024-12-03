@@ -3,12 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 // Ruta al archivo HTML local
-const url = "file:///G:/ProyectsJS/Proyect-E/index.html"; // Cambia esta ruta según la ubicación de tu archivo
+const url = "file:///G:/ProyectsJS/Proyect-E/index.html"; 
 
-// Especifica la ruta de la carpeta donde se guardarán las capturas de pantalla
+// ruta de la carpeta donde se guardarán las capturas de pantalla
 const screenshotPath = path.join(__dirname, 'screenshots');
 
-// Configuración de las capacidades de Microsoft Edge
+
 const edgeCapabilities = Capabilities.edge();
 edgeCapabilities.set('acceptSslCerts', true);
 
@@ -24,14 +24,14 @@ async function takeScreenshot(driver, stepName) {
 async function runTests() {
     const driver = await new Builder()
         .forBrowser('MicrosoftEdge')
-        .withCapabilities(edgeCapabilities) // Usar las capacidades de Edge con SSL habilitado
+        .withCapabilities(edgeCapabilities) 
         .build();
 
     try {
         await driver.get(url);
 
         // Espera hasta que la página se haya cargado completamente
-        await driver.wait(until.titleIs('E-Sneakers'), 10000); // Cambia 'E-Sneakers' al título correcto de tu página
+        await driver.wait(until.titleIs('E-Sneakers'), 10000); 
 
         // Toma una captura de pantalla justo después de cargar la página
         console.log("Prueba 1: Captura de pantalla al abrir la página");
